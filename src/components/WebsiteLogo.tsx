@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 
 interface WebsiteLogoProps {
   url: string;
@@ -9,42 +8,23 @@ interface WebsiteLogoProps {
 }
 
 export const WebsiteLogo = ({ url, alt, fallbackText, className = "w-12 h-12" }: WebsiteLogoProps) => {
-  const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchLogo = async () => {
-      try {
-        const { data, error } = await supabase.functions.invoke('fetch-website-logo', {
-          body: { url }
-        });
+  // Extract domain from URL for logo.dev API
+  const getDomain = (urlString: string) => {
+    try {
+      const urlObj = new URL(urlString.startsWith('http') ? urlString : `https://${urlString}`);
+      return urlObj.hostname.replace('www.', '');
+    } catch {
+      return urlString;
+    }
+  };
 
-        if (error) throw error;
+  const domain = getDomain(url);
+  const logoUrl = `https://img.logo.dev/${domain}?token=pk_X-r7p09qT92AkPUPjkL9-Q`;
 
-        if (data?.logoUrl) {
-          setLogoUrl(data.logoUrl);
-        } else {
-          setError(true);
-        }
-      } catch (err) {
-        console.error('Error fetching logo:', err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchLogo();
-  }, [url]);
-
-  if (loading) {
-    return (
-      <div className={`${className} bg-gradient-to-br from-brand-secondary/30 to-blue-50/30 rounded-lg animate-pulse`} />
-    );
-  }
-
-  if (error || !logoUrl) {
+  if (error) {
     return (
       <div className={`${className} bg-gradient-to-br from-accent to-primary-gradient rounded-lg flex items-center justify-center`}>
         <span className="text-white font-bold text-sm">{fallbackText}</span>
@@ -57,6 +37,7 @@ export const WebsiteLogo = ({ url, alt, fallbackText, className = "w-12 h-12" }:
       src={logoUrl}
       alt={alt}
       className={`${className} rounded-lg object-cover`}
+      onLoad={() => setLoading(false)}
       onError={() => setError(true)}
     />
   );
