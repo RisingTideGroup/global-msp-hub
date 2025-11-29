@@ -63,18 +63,45 @@ serve(async (req) => {
       );
     }
     
-    // Fetch the website HTML
-    const response = await fetch(websiteUrl, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; JobMatch/1.0; +https://jobmatch.com)'
+    // Fetch the website HTML with better headers and timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    
+    let html: string;
+    try {
+      const response = await fetch(websiteUrl, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.5',
+          'Accept-Encoding': 'gzip, deflate, br',
+          'DNT': '1',
+          'Connection': 'keep-alive',
+          'Upgrade-Insecure-Requests': '1'
+        },
+        signal: controller.signal
+      })
+      clearTimeout(timeoutId)
+      
+      if (!response.ok) {
+        console.log(`Failed to fetch ${websiteUrl}: ${response.status}`)
+        // Return empty result instead of throwing for blocked sites
+        return new Response(
+          JSON.stringify({ logoUrl: null, title: null, description: null }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        )
       }
-    })
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch website: ${response.status}`)
+      
+      html = await response.text()
+    } catch (fetchError: any) {
+      clearTimeout(timeoutId);
+      console.log(`Error fetching ${websiteUrl}:`, fetchError?.message || 'Unknown error')
+      // Return empty result for fetch failures (DNS, timeout, etc)
+      return new Response(
+        JSON.stringify({ logoUrl: null, title: null, description: null }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
     }
-    
-    const html = await response.text()
     
     // Extract logo URLs using various methods
     const logoUrls: string[] = []
