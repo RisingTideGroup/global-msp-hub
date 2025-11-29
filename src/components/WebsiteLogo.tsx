@@ -22,7 +22,7 @@ export const WebsiteLogo = ({ url, alt, fallbackText, className = "w-12 h-12" }:
   };
 
   const domain = getDomain(url);
-  const logoUrl = `https://img.logo.dev/${domain}?token=pk_X-r7p09qT92AkPUPjkL9-Q`;
+  const logoUrl = `https://img.logo.dev/${domain}?token=pk_Ho3VARt2TfSvUb9s1iabQA`;
 
   if (error) {
     return (
