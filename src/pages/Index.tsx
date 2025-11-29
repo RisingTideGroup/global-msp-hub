@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { WebsiteLogo } from "@/components/WebsiteLogo";
 import { Building, ExternalLink } from "lucide-react";
 
 const Index = () => {
@@ -40,12 +41,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/mspgeek.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="MSPGeek" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=MSP'}
-                />
+                <WebsiteLogo url="https://mspgeek.com" alt="MSPGeek" fallbackText="MSP" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   MSPGeek
                 </h4>
@@ -62,12 +58,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/techdegenerates.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="Tech Degenerates" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=TD'}
-                />
+                <WebsiteLogo url="https://techdegenerates.com" alt="Tech Degenerates" fallbackText="TD" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   Tech Degenerates
                 </h4>
@@ -84,12 +75,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/reddit.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="Reddit r/msp" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=r/msp'}
-                />
+                <WebsiteLogo url="https://reddit.com" alt="Reddit r/msp" fallbackText="r/msp" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   Reddit /r/msp
                 </h4>
@@ -120,12 +106,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/cyberdrain.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="Cyberdrain" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=CD'}
-                />
+                <WebsiteLogo url="https://cyberdrain.com" alt="Cyberdrain" fallbackText="CD" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   Cyberdrain
                 </h4>
@@ -142,12 +123,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/mspgeek.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="MSPGeek" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=MSP'}
-                />
+                <WebsiteLogo url="https://mspgeek.com" alt="MSPGeek" fallbackText="MSP" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   MSPGeek
                 </h4>
@@ -164,12 +140,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/techdegenerates.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="Tech Degenerates" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=TD'}
-                />
+                <WebsiteLogo url="https://techdegenerates.com" alt="Tech Degenerates" fallbackText="TD" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   Tech Degenerates
                 </h4>
@@ -186,12 +157,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/halopsa.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="HaloPSA" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=Halo'}
-                />
+                <WebsiteLogo url="https://halopsa.com" alt="HaloPSA" fallbackText="Halo" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   HaloPSA Community
                 </h4>
@@ -208,12 +174,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/usehudu.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="Hudu" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=Hudu'}
-                />
+                <WebsiteLogo url="https://usehudu.com" alt="Hudu" fallbackText="Hudu" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   Hudu Community
                 </h4>
@@ -244,12 +205,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/mspgeek.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="MSPGeek" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=MSP'}
-                />
+                <WebsiteLogo url="https://mspgeek.com" alt="MSPGeek" fallbackText="MSP" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   MSPGeek
                 </h4>
@@ -266,12 +222,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/youtube.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="John Hammond" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=JH'}
-                />
+                <WebsiteLogo url="https://youtube.com" alt="John Hammond" fallbackText="JH" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   John Hammond
                 </h4>
@@ -288,12 +239,7 @@ const Index = () => {
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
-                <img 
-                  src="https://img.logo.dev/lawrencesystems.com?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
-                  alt="Tom Lawrence" 
-                  className="w-12 h-12 rounded-lg object-cover"
-                  onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/48?text=TL'}
-                />
+                <WebsiteLogo url="https://lawrencesystems.com" alt="Tom Lawrence" fallbackText="TL" />
                 <h4 className="text-xl font-bold text-brand-primary group-hover:text-accent transition-colors">
                   Tom Lawrence
                 </h4>
@@ -326,19 +272,12 @@ const Index = () => {
             >
               <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-brand-secondary hover:border-accent transition-all duration-300 hover:shadow-xl h-full">
                 <div className="flex items-center gap-4 mb-6">
-                  <img 
-                    src="https://img.logo.dev/jobs.globalmsphub.org?token=pk_X-WvS9fRR0u5fa0k1RqVGQ" 
+                  <WebsiteLogo 
+                    url="https://jobs.globalmsphub.org" 
                     alt="JobMatch" 
-                    className="w-16 h-16 rounded-lg object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
+                    fallbackText="JM"
+                    className="w-16 h-16"
                   />
-                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary-gradient rounded-lg items-center justify-center hidden">
-                    <Building className="h-10 w-10 text-white" />
-                  </div>
                 </div>
                 <h4 className="text-2xl font-bold text-brand-primary mb-3 group-hover:text-accent transition-colors">
                   JobMatch
