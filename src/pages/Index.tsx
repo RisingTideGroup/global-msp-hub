@@ -10,7 +10,7 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-brand-primary mb-6 sm:mb-8 leading-tight">
             Your Central Hub for 
