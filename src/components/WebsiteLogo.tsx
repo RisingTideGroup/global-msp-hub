@@ -24,6 +24,21 @@ export const WebsiteLogo = ({ url, alt, fallbackText, className = "w-12 h-12" }:
   const domain = getDomain(url);
   const logoUrl = `https://img.logo.dev/${domain}?token=pk_Ho3VARt2TfSvUb9s1iabQA`;
 
+  if (loading) {
+    return (
+      <>
+        <div className={`${className} bg-gradient-to-br from-brand-secondary/30 to-blue-50/30 rounded-lg animate-pulse`} />
+        <img
+          src={logoUrl}
+          alt={alt}
+          className="hidden"
+          onLoad={() => setLoading(false)}
+          onError={() => setError(true)}
+        />
+      </>
+    );
+  }
+
   if (error) {
     return (
       <div className={`${className} bg-gradient-to-br from-accent to-primary-gradient rounded-lg flex items-center justify-center`}>
@@ -37,8 +52,6 @@ export const WebsiteLogo = ({ url, alt, fallbackText, className = "w-12 h-12" }:
       src={logoUrl}
       alt={alt}
       className={`${className} rounded-lg object-cover`}
-      onLoad={() => setLoading(false)}
-      onError={() => setError(true)}
     />
   );
 };
