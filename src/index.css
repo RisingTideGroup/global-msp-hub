@@ -1,0 +1,109 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Rising Tide Brand Colors */
+    --dark-text: #4f6471;
+    --accent-color: #007ac1;
+    --primary-color: #053553;
+    --secondary-color: #e5eff4;
+    --light-color: #fff;
+    --cta-color: #e56e6d;
+    --primary-gradient-color: #1d4b5f;
+    --light-soft-text: #c1ced6;
+    --light-text: #fff;
+    --heading-highlight-text: #6f96af;
+
+    /* Shadcn UI Variables - Updated to match brand */
+    --background: 0 0% 100%;
+    --foreground: 215 27% 32%; /* dark-text equivalent */
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 27% 32%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 27% 32%;
+
+    --primary: 210 100% 24%; /* brand-primary #053553 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 50% 90%; /* brand-secondary #e5eff4 */
+    --secondary-foreground: 215 27% 32%;
+
+    --muted: 200 50% 90%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 195 100% 38%; /* accent-color #007ac1 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 30% 85%;
+    --input: 200 30% 85%;
+    --ring: 195 100% 38%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 200 50% 95%;
+    --sidebar-foreground: 215 27% 32%;
+    --sidebar-primary: 210 100% 24%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 50% 90%;
+    --sidebar-accent-foreground: 215 27% 32%;
+    --sidebar-border: 200 30% 85%;
+    --sidebar-ring: 195 100% 38%;
+  }
+
+  .dark {
+    --background: 210 100% 12%; /* darker version of primary */
+    --foreground: 200 50% 90%;
+
+    --card: 210 100% 12%;
+    --card-foreground: 200 50% 90%;
+
+    --popover: 210 100% 12%;
+    --popover-foreground: 200 50% 90%;
+
+    --primary: 200 50% 90%;
+    --primary-foreground: 210 100% 12%;
+
+    --secondary: 210 50% 20%;
+    --secondary-foreground: 200 50% 90%;
+
+    --muted: 210 50% 20%;
+    --muted-foreground: 200 20% 65%;
+
+    --accent: 195 100% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 31%;
+    --destructive-foreground: 200 50% 90%;
+
+    --border: 210 50% 20%;
+    --input: 210 50% 20%;
+    --ring: 195 100% 38%;
+
+    --sidebar-background: 210 100% 8%;
+    --sidebar-foreground: 200 50% 90%;
+    --sidebar-primary: 195 100% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 50% 15%;
+    --sidebar-accent-foreground: 200 50% 90%;
+    --sidebar-border: 210 50% 15%;
+    --sidebar-ring: 195 100% 38%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
