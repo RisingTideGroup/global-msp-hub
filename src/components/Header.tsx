@@ -11,8 +11,8 @@ export const Header = () => {
               <Building className="h-6 w-6 text-white" />
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
-              <h1 className="text-lg sm:text-2xl font-bold text-brand-primary">JobMatch</h1>
-              <p className="text-xs sm:text-sm text-dark-text hidden lg:block">Jobs for the MSP/MSSP/TSP Industry</p>
+              <h1 className="text-lg sm:text-2xl font-bold text-brand-primary">Global MSP Hub</h1>
+              <p className="text-xs sm:text-sm text-dark-text hidden lg:block">Your Gateway to MSP/MSSP/TSP Resources</p>
             </div>
           </Link>
         </div>
