@@ -9,11 +9,11 @@ export const Footer = () => {
           <div className="w-10 h-10 bg-gradient-to-br from-rising-blue-600 to-rising-orange-600 rounded-lg flex items-center justify-center">
             <Building className="h-6 w-6 text-white" />
           </div>
-          <h4 className="text-2xl font-bold">JobMatch</h4>
+          <h4 className="text-2xl font-bold">Global MSP Hub</h4>
         </div>
         <p className="text-slate-400 max-w-2xl mx-auto mb-6">
-          Connecting talented individuals with companies that share their values. 
-          Find your perfect match and build a career you love.
+          Your central hub for MSP, MSSP, and TSP resources. 
+          Connecting the community with tools, opportunities, and innovation.
         </p>
         
         {/* Rising Tide Banner */}
