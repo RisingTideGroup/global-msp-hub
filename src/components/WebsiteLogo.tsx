@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useWebsiteLogo } from "@/hooks/useWebsiteLogo";
+import { supabase } from "@/integrations/supabase/client";
 
 interface WebsiteLogoProps {
   url: string;
@@ -11,22 +11,38 @@ interface WebsiteLogoProps {
 export const WebsiteLogo = ({ url, alt, fallbackText, className = "w-12 h-12" }: WebsiteLogoProps) => {
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const [error, setError] = useState(false);
-  const { mutate: fetchLogo } = useWebsiteLogo();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchLogo(url, {
-      onSuccess: (data) => {
-        if (data.logoUrl) {
+    const fetchLogo = async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke('fetch-website-logo', {
+          body: { url }
+        });
+
+        if (error) throw error;
+
+        if (data?.logoUrl) {
           setLogoUrl(data.logoUrl);
         } else {
           setError(true);
         }
-      },
-      onError: () => {
+      } catch (err) {
+        console.error('Error fetching logo:', err);
         setError(true);
-      },
-    });
-  }, [url, fetchLogo]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLogo();
+  }, [url]);
+
+  if (loading) {
+    return (
+      <div className={`${className} bg-gradient-to-br from-brand-secondary/30 to-blue-50/30 rounded-lg animate-pulse`} />
+    );
+  }
 
   if (error || !logoUrl) {
     return (
