@@ -19,7 +19,7 @@ export const LinkForm = ({ link, onClose, userRole }: LinkFormProps) => {
   const [url, setUrl] = useState(link?.url || "");
   const [description, setDescription] = useState(link?.description || "");
   const [logoUrl, setLogoUrl] = useState(link?.logo_url || "");
-  const [category, setCategory] = useState(link?.category || "community");
+  const [category, setCategory] = useState(link?.category || "");
   const [displayOrder, setDisplayOrder] = useState(link?.display_order || 0);
   const [isActive, setIsActive] = useState(link?.is_active ?? true);
   const [loading, setLoading] = useState(false);
