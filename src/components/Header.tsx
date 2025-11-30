@@ -16,9 +16,9 @@ export const Header = () => {
               <p className="text-xs sm:text-sm text-dark-text hidden lg:block">Your Gateway to MSP/MSSP/TSP Resources</p>
             </div>
           </Link>
-          <Link to="/auth">
+          <a href={`https://jobs.globalmsphub.org/auth?returnUrl=${encodeURIComponent(typeof window !== 'undefined' ? window.location.origin + "/admin" : "")}`}>
             <Button variant="outline" size="sm">Admin Login</Button>
-          </Link>
+          </a>
         </div>
       </div>
     </header>

@@ -94,7 +94,7 @@ const Admin = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-brand-primary">Admin Panel</h1>
+            <h1 className="text-3xl font-bold text-brand-primary">Manage Links</h1>
             <p className="text-dark-text mt-2">
               Logged in as: {user?.email}
               {userRole && <span className="ml-2 text-accent font-semibold">({userRole})</span>}
