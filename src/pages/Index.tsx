@@ -37,7 +37,7 @@ const Index = () => {
             <a 
               href="https://mspgeek.com" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -54,7 +54,7 @@ const Index = () => {
             <a 
               href="https://techdegenerates.com" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -71,7 +71,7 @@ const Index = () => {
             <a 
               href="https://reddit.com/r/msp" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -102,7 +102,7 @@ const Index = () => {
             <a 
               href="https://discord.gg/cyberdrain" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -119,7 +119,7 @@ const Index = () => {
             <a 
               href="https://discord.gg/mspgeek" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -136,7 +136,7 @@ const Index = () => {
             <a 
               href="https://discord.gg/techdegenerates" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -153,7 +153,7 @@ const Index = () => {
             <a 
               href="https://discord.gg/halopsa" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -170,7 +170,7 @@ const Index = () => {
             <a 
               href="https://discord.gg/hudu" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -201,7 +201,7 @@ const Index = () => {
             <a 
               href="https://youtube.com/@mspgeek" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -218,7 +218,7 @@ const Index = () => {
             <a 
               href="https://youtube.com/@_JohnHammond" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -235,7 +235,7 @@ const Index = () => {
             <a 
               href="https://youtube.com/@lawrencesystems" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block bg-white rounded-lg shadow-md p-6 border-2 border-brand-secondary/50 hover:border-accent transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -267,7 +267,7 @@ const Index = () => {
             <a 
               href="https://jobs.globalmsphub.org" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="group block"
             >
               <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-brand-secondary hover:border-accent transition-all duration-300 hover:shadow-xl h-full">
