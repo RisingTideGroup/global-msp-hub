@@ -624,6 +624,36 @@ export type Database = {
           },
         ]
       }
+      msp_hub_categories: {
+        Row: {
+          created_at: string
+          display_name: string
+          display_order: number
+          id: string
+          is_active: boolean | null
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_name: string
+          display_order?: number
+          id?: string
+          is_active?: boolean | null
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       msp_hub_links: {
         Row: {
           category: string

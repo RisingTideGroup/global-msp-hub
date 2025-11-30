@@ -32,13 +32,13 @@ export const CategoryCombobox = ({ value, onChange }: CategoryComboboxProps) => 
 
   const fetchCategories = async () => {
     const { data } = await supabase
-      .from("msp_hub_links")
-      .select("category")
-      .eq("is_active", true);
+      .from("msp_hub_categories")
+      .select("name, display_name")
+      .eq("is_active", true)
+      .order("display_order");
 
     if (data) {
-      const uniqueCategories = [...new Set(data.map((item) => item.category))].sort();
-      setCategories(uniqueCategories);
+      setCategories(data.map((item) => item.name));
     }
   };
 
