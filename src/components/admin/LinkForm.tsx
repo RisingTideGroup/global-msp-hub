@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "@/pages/Admin";
 
@@ -149,17 +149,13 @@ export const LinkForm = ({ link, onClose, userRole }: LinkFormProps) => {
 
         <div>
           <Label htmlFor="category">Category *</Label>
-          <Select value={category} onValueChange={setCategory}>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="community">Community</SelectItem>
-              <SelectItem value="discord">Discord</SelectItem>
-              <SelectItem value="youtube">YouTube</SelectItem>
-              <SelectItem value="project">Project</SelectItem>
-            </SelectContent>
-          </Select>
+          <Input
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            placeholder="e.g., Community, Discord, YouTube"
+            required
+          />
         </div>
 
         <div>
