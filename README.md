@@ -1,73 +1,56 @@
-# Welcome to your Lovable project
+# Global MSP Hub
 
-## Project info
+A centralized directory for the MSP, MSSP, and TSP community connecting professionals with essential resources, communities, and opportunities.
 
-**URL**: https://lovable.dev/projects/2a73cc8a-6e40-43fb-938f-926f97837621
+## Project Overview
 
-## How can I edit this code?
+Global MSP Hub is a static landing page that curates and organizes important resources for the managed service provider community, including:
 
-There are several ways of editing your application.
+- MSP Communities (MSPGeek, Tech Degenerates, Reddit r/msp)
+- Discord Communities (Cyberdrain, MSPGeek, Tech Degenerates, HaloPSA, Hudu)
+- YouTube Content Creators
+- Related Projects (JobMatch and future additions)
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2a73cc8a-6e40-43fb-938f-926f97837621) and start prompting.
+- **Vite** - Fast build tool and dev server
+- **TypeScript** - Type-safe code
+- **React** - UI framework
+- **shadcn-ui** - Component library
+- **Tailwind CSS** - Utility-first styling
 
-Changes made via Lovable will be committed automatically to this repo.
+## Development
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js & npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
+# Install dependencies
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Deploy easily through [Lovable](https://lovable.dev) by clicking Share → Publish.
 
-**Use GitHub Codespaces**
+## Custom Domain
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Connect a custom domain via Project > Settings > Domains.
 
-## What technologies are used for this project?
+Read more: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
-This project is built with:
+## Project URL
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/2a73cc8a-6e40-43fb-938f-926f97837621) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Lovable Project**: https://lovable.dev/projects/2a73cc8a-6e40-43fb-938f-926f97837621

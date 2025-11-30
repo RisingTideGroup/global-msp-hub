@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface WebsiteLogoProps {
   url: string;
   alt: string;
@@ -7,51 +5,13 @@ interface WebsiteLogoProps {
   className?: string;
 }
 
-export const WebsiteLogo = ({ url, alt, fallbackText, className = "w-12 h-12" }: WebsiteLogoProps) => {
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  // Extract domain from URL for logo.dev API
-  const getDomain = (urlString: string) => {
-    try {
-      const urlObj = new URL(urlString.startsWith('http') ? urlString : `https://${urlString}`);
-      return urlObj.hostname.replace('www.', '');
-    } catch {
-      return urlString;
-    }
-  };
-
-  const domain = getDomain(url);
-  const logoUrl = `https://img.logo.dev/${domain}?token=pk_Ho3VARt2TfSvUb9s1iabQA`;
-
-  if (loading) {
-    return (
-      <>
-        <div className={`${className} bg-gradient-to-br from-brand-secondary/30 to-blue-50/30 rounded-lg animate-pulse`} />
-        <img
-          src={logoUrl}
-          alt={alt}
-          className="hidden"
-          onLoad={() => setLoading(false)}
-          onError={() => setError(true)}
-        />
-      </>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className={`${className} bg-gradient-to-br from-accent to-primary-gradient rounded-lg flex items-center justify-center`}>
-        <span className="text-white font-bold text-sm">{fallbackText}</span>
-      </div>
-    );
-  }
-
+export const WebsiteLogo = ({ fallbackText, alt, className = "w-12 h-12" }: WebsiteLogoProps) => {
   return (
-    <img
-      src={logoUrl}
-      alt={alt}
-      className={`${className} rounded-lg object-cover`}
-    />
+    <div 
+      className={`${className} bg-gradient-to-br from-accent to-primary-gradient rounded-lg flex items-center justify-center text-white font-bold shadow-md`}
+      aria-label={alt}
+    >
+      {fallbackText}
+    </div>
   );
 };
