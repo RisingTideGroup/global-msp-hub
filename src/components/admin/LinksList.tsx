@@ -3,16 +3,17 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "@/pages/Admin";
-import { Pencil, Trash2 } from "lucide-react";
+import { Pencil, Trash2, X } from "lucide-react";
+import { LinkForm } from "./LinkForm";
 
 interface LinksListProps {
-  onEdit: (link: Link) => void;
   userRole: string | null;
 }
 
-export const LinksList = ({ onEdit, userRole }: LinksListProps) => {
+export const LinksList = ({ userRole }: LinksListProps) => {
   const [links, setLinks] = useState<Link[]>([]);
   const [loading, setLoading] = useState(true);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const { toast } = useToast();
 
   const canEdit = userRole === "admin" || userRole === "moderator";
@@ -108,52 +109,71 @@ export const LinksList = ({ onEdit, userRole }: LinksListProps) => {
           </h3>
           <div className="space-y-4">
             {categoryLinks.map((link) => (
-              <div
-                key={link.id}
-                className="flex items-center justify-between p-4 border border-brand-secondary rounded-lg hover:border-accent transition-colors"
-              >
-                <div className="flex-1">
-                  <h4 className="font-bold text-brand-primary">{link.title}</h4>
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline text-sm"
-                  >
-                    {link.url}
-                  </a>
-                  {link.description && (
-                    <p className="text-dark-text text-sm mt-1">{link.description}</p>
-                  )}
-                  <div className="flex gap-2 mt-2">
-                    <span className="text-xs text-dark-text">
-                      Order: {link.display_order}
-                    </span>
-                    <span className={`text-xs ${link.is_active ? "text-green-600" : "text-red-600"}`}>
-                      {link.is_active ? "Active" : "Inactive"}
-                    </span>
+              <div key={link.id}>
+                {editingId === link.id ? (
+                  <div className="border border-accent rounded-lg p-4 bg-white shadow-lg">
+                    <div className="flex justify-between items-center mb-4">
+                      <h4 className="font-bold text-brand-primary">Edit Link</h4>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setEditingId(null)}
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
+                    <LinkForm 
+                      link={link}
+                      onClose={() => setEditingId(null)}
+                      userRole={userRole}
+                    />
                   </div>
-                </div>
-                <div className="flex gap-2 ml-4">
-                  {canEdit && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => onEdit(link)}
-                    >
-                      <Pencil className="h-4 w-4" />
-                    </Button>
-                  )}
-                  {canDelete && (
-                    <Button
-                      variant="destructive"
-                      size="sm"
-                      onClick={() => handleDelete(link.id)}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  )}
-                </div>
+                ) : (
+                  <div className="flex items-center justify-between p-4 border border-brand-secondary rounded-lg hover:border-accent transition-colors">
+                    <div className="flex-1">
+                      <h4 className="font-bold text-brand-primary">{link.title}</h4>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline text-sm"
+                      >
+                        {link.url}
+                      </a>
+                      {link.description && (
+                        <p className="text-dark-text text-sm mt-1">{link.description}</p>
+                      )}
+                      <div className="flex gap-2 mt-2">
+                        <span className="text-xs text-dark-text">
+                          Order: {link.display_order}
+                        </span>
+                        <span className={`text-xs ${link.is_active ? "text-green-600" : "text-red-600"}`}>
+                          {link.is_active ? "Active" : "Inactive"}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex gap-2 ml-4">
+                      {canEdit && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setEditingId(link.id)}
+                        >
+                          <Pencil className="h-4 w-4" />
+                        </Button>
+                      )}
+                      {canDelete && (
+                        <Button
+                          variant="destructive"
+                          size="sm"
+                          onClick={() => handleDelete(link.id)}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

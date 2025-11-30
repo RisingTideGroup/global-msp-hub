@@ -72,11 +72,6 @@ const Admin = () => {
     navigate("/");
   };
 
-  const handleEdit = (link: Link) => {
-    setEditingLink(link);
-    setShowForm(true);
-  };
-
   const handleFormClose = () => {
     setShowForm(false);
     setEditingLink(null);
@@ -124,7 +119,7 @@ const Admin = () => {
           </div>
         )}
 
-        <LinksList onEdit={handleEdit} userRole={userRole} />
+        <LinksList userRole={userRole} />
       </div>
 
       <Footer />
