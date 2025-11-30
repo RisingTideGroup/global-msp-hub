@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import { LinkForm } from "@/components/admin/LinkForm";
 import { LinksList } from "@/components/admin/LinksList";
 import { User } from "@supabase/supabase-js";
-import { Plus } from "lucide-react";
+import { Plus, FolderKanban } from "lucide-react";
 
 export interface Link {
   id: string;
@@ -99,6 +99,16 @@ const Admin = () => {
             </p>
           </div>
           <div className="flex gap-2">
+            {(userRole === "admin" || userRole === "moderator") && (
+              <Button 
+                variant="outline" 
+                onClick={() => navigate("/admin/categories")} 
+                className="flex items-center gap-2"
+              >
+                <FolderKanban className="h-4 w-4" />
+                Manage Categories
+              </Button>
+            )}
             <Button onClick={() => setShowForm(true)} className="flex items-center gap-2">
               <Plus className="h-4 w-4" />
               Add Link
