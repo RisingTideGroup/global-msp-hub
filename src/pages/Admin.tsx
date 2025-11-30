@@ -38,7 +38,8 @@ const Admin = () => {
         setUser(session.user);
         fetchUserRole(session.user.id);
       } else {
-        navigate("/auth");
+        const returnUrl = encodeURIComponent(window.location.origin + "/admin");
+        window.location.href = `https://jobs.globalmsphub.org/auth?returnUrl=${returnUrl}`;
       }
       setLoading(false);
     });
@@ -48,7 +49,8 @@ const Admin = () => {
       if (session?.user) {
         fetchUserRole(session.user.id);
       } else {
-        navigate("/auth");
+        const returnUrl = encodeURIComponent(window.location.origin + "/admin");
+        window.location.href = `https://jobs.globalmsphub.org/auth?returnUrl=${returnUrl}`;
       }
     });
 
