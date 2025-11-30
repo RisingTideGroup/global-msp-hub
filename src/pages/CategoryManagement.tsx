@@ -39,7 +39,7 @@ const CategoryManagement = () => {
 
       if (accessToken) {
         // Set the session from the tokens
-        const { error } = await supabase.auth.setSession({
+        const { data, error } = await supabase.auth.setSession({
           access_token: accessToken,
           refresh_token: refreshToken || '',
         });
@@ -51,13 +51,23 @@ const CategoryManagement = () => {
             description: error.message,
             variant: "destructive",
           });
+          setLoading(false);
+          return;
         }
 
         // Clean up the URL
         window.history.replaceState({}, document.title, window.location.pathname);
+        
+        // Session is now set, update state
+        if (data.session?.user) {
+          setUser(data.session.user);
+          fetchUserRole(data.session.user.id);
+          setLoading(false);
+          return;
+        }
       }
 
-      // Now check for existing session
+      // Check for existing session (if no tokens in URL)
       const { data: { session } } = await supabase.auth.getSession();
       
       if (session?.user) {
@@ -65,6 +75,7 @@ const CategoryManagement = () => {
         fetchUserRole(session.user.id);
         setLoading(false);
       } else {
+        // No session found, redirect to login
         const returnUrl = encodeURIComponent(window.location.origin + "/admin/categories");
         window.location.href = `https://jobs.globalmsphub.org/auth?returnUrl=${returnUrl}`;
       }
