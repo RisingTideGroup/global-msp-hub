@@ -32,30 +32,56 @@ const Admin = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check authentication
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    const initAuth = async () => {
+      // First check if we have auth tokens in the URL hash (from redirect)
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const accessToken = hashParams.get('access_token');
+      const refreshToken = hashParams.get('refresh_token');
+
+      if (accessToken) {
+        // Set the session from the tokens
+        const { error } = await supabase.auth.setSession({
+          access_token: accessToken,
+          refresh_token: refreshToken || '',
+        });
+
+        if (error) {
+          console.error('Error setting session:', error);
+          toast({
+            title: "Authentication Error",
+            description: error.message,
+            variant: "destructive",
+          });
+        }
+
+        // Clean up the URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+      // Now check for existing session
+      const { data: { session } } = await supabase.auth.getSession();
+      
       if (session?.user) {
         setUser(session.user);
         fetchUserRole(session.user.id);
+        setLoading(false);
       } else {
         const returnUrl = encodeURIComponent(window.location.origin + "/admin");
         window.location.href = `https://jobs.globalmsphub.org/auth?returnUrl=${returnUrl}`;
       }
-      setLoading(false);
-    });
+    };
+
+    initAuth();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
       if (session?.user) {
         fetchUserRole(session.user.id);
-      } else {
-        const returnUrl = encodeURIComponent(window.location.origin + "/admin");
-        window.location.href = `https://jobs.globalmsphub.org/auth?returnUrl=${returnUrl}`;
       }
     });
 
     return () => subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, toast]);
 
   const fetchUserRole = async (userId: string) => {
     const { data, error } = await supabase
