@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "@/pages/Admin";
+import { CategoryCombobox } from "./CategoryCombobox";
 
 interface LinkFormProps {
   link: Link | null;
@@ -149,13 +149,7 @@ export const LinkForm = ({ link, onClose, userRole }: LinkFormProps) => {
 
         <div>
           <Label htmlFor="category">Category *</Label>
-          <Input
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            placeholder="e.g., Community, Discord, YouTube"
-            required
-          />
+          <CategoryCombobox value={category} onChange={setCategory} />
         </div>
 
         <div>
