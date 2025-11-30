@@ -1,5 +1,6 @@
 import { Building } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export const Header = () => {
   return (
@@ -14,6 +15,9 @@ export const Header = () => {
               <h1 className="text-lg sm:text-2xl font-bold text-brand-primary">Global MSP Hub</h1>
               <p className="text-xs sm:text-sm text-dark-text hidden lg:block">Your Gateway to MSP/MSSP/TSP Resources</p>
             </div>
+          </Link>
+          <Link to="/auth">
+            <Button variant="outline" size="sm">Admin Login</Button>
           </Link>
         </div>
       </div>
