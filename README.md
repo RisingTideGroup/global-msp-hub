@@ -41,6 +41,42 @@ npm i
 npm run dev
 ```
 
+## Contributing
+
+We welcome contributions from the MSP community! Here's how you can help:
+
+### Reporting Bugs
+
+1. Check if the issue already exists in [GitHub Issues](../../issues)
+2. If not, create a new issue with:
+   - A clear, descriptive title
+   - Steps to reproduce the bug
+   - Expected vs actual behavior
+   - Screenshots if applicable
+   - Browser/device information
+
+### Suggesting Features
+
+1. Open a [new issue](../../issues/new) with the "feature request" label
+2. Describe the feature and its benefit to the MSP community
+3. Include any mockups or examples if possible
+
+### Submitting Pull Requests
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Commit with clear messages (`git commit -m 'Add amazing feature'`)
+5. Push to your branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request with a clear description of your changes
+
+### Code Style
+
+- Follow existing code patterns and conventions
+- Use TypeScript for type safety
+- Format code with Prettier
+- Test your changes locally before submitting
+
 ## Deployment
 
 Deploy easily through [Lovable](https://lovable.dev) by clicking Share → Publish.
@@ -54,3 +90,7 @@ Read more: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/cus
 ## Project URL
 
 **Lovable Project**: https://lovable.dev/projects/2a73cc8a-6e40-43fb-938f-926f97837621
+
+## License
+
+This project is open source and available to the MSP community.
