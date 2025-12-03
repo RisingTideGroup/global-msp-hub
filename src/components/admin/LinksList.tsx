@@ -8,16 +8,18 @@ import { LinkForm } from "./LinkForm";
 
 interface LinksListProps {
   userRole: string | null;
+  currentUserId: string | null;
 }
 
-export const LinksList = ({ userRole }: LinksListProps) => {
+export const LinksList = ({ userRole, currentUserId }: LinksListProps) => {
   const [links, setLinks] = useState<Link[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
   const { toast } = useToast();
 
-  const canEdit = userRole === "admin" || userRole === "moderator";
-  const canDelete = userRole === "admin";
+  // Role-based permissions (for all links)
+  const isAdminOrMod = userRole === "admin" || userRole === "moderator";
+  const isAdmin = userRole === "admin";
 
   useEffect(() => {
     fetchLinks();
@@ -57,12 +59,13 @@ export const LinksList = ({ userRole }: LinksListProps) => {
     setLoading(false);
   };
 
-  const handleDelete = async (id: string) => {
-    if (!canDelete) {
+  const handleDelete = async (link: Link) => {
+    const isOwner = link.created_by === currentUserId;
+    if (!isAdmin && !isOwner) {
       toast({
         variant: "destructive",
         title: "Permission denied",
-        description: "Only admins can delete links.",
+        description: "You can only delete links you created.",
       });
       return;
     }
@@ -72,7 +75,7 @@ export const LinksList = ({ userRole }: LinksListProps) => {
     const { error } = await supabase
       .from("msp_hub_links")
       .delete()
-      .eq("id", id);
+      .eq("id", link.id);
 
     if (error) {
       toast({
@@ -108,7 +111,12 @@ export const LinksList = ({ userRole }: LinksListProps) => {
             {category} Links
           </h3>
           <div className="space-y-4">
-            {categoryLinks.map((link) => (
+            {categoryLinks.map((link) => {
+              const isOwner = link.created_by === currentUserId;
+              const canEditLink = isAdminOrMod || isOwner;
+              const canDeleteLink = isAdmin || isOwner;
+              
+              return (
               <div key={link.id}>
                 {editingId === link.id ? (
                   <div className="border border-accent rounded-lg p-4 bg-white shadow-lg">
@@ -153,7 +161,7 @@ export const LinksList = ({ userRole }: LinksListProps) => {
                       </div>
                     </div>
                     <div className="flex gap-2 ml-4">
-                      {canEdit && (
+                      {canEditLink && (
                         <Button
                           variant="outline"
                           size="sm"
@@ -162,11 +170,11 @@ export const LinksList = ({ userRole }: LinksListProps) => {
                           <Pencil className="h-4 w-4" />
                         </Button>
                       )}
-                      {canDelete && (
+                      {canDeleteLink && (
                         <Button
                           variant="destructive"
                           size="sm"
-                          onClick={() => handleDelete(link.id)}
+                          onClick={() => handleDelete(link)}
                         >
                           <Trash2 className="h-4 w-4" />
                         </Button>
@@ -175,7 +183,8 @@ export const LinksList = ({ userRole }: LinksListProps) => {
                   </div>
                 )}
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       ))}
