@@ -20,6 +20,7 @@ export interface Link {
   display_order: number;
   is_active: boolean;
   created_at: string;
+  created_by: string | null;
 }
 
 const Admin = () => {
@@ -168,7 +169,7 @@ const Admin = () => {
           </div>
         )}
 
-        <LinksList userRole={userRole} />
+        <LinksList userRole={userRole} currentUserId={user?.id ?? null} />
       </div>
 
       <Footer />
